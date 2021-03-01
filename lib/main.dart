@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
                               padding: EdgeInsets.all(25.0),
                               child: Container(
                                 height: 525,
-                                color: Colors.grey[300],
+                                color: state.color,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,

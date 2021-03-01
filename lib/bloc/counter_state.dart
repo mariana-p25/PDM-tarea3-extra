@@ -9,21 +9,12 @@ class CounterInitial extends CounterState {
   List<Object> get props => throw UnimplementedError();
 }
 
-class CounterColorState extends CounterState {
+class CounterChangeState extends CounterState {
   final int contador;
   final Color color;
 
-  CounterColorState({@required this.contador, @required this.color});
+  CounterChangeState({@required this.contador, @required this.color});
 
   @override
-  List<Object> get props => [contador];
-}
-
-class CounterChangeState extends CounterState {
-  final int contador;
-
-  CounterChangeState({@required this.contador});
-
-  @override
-  List<Object> get props => [contador];
+  List<Object> get props => [contador, color];
 }

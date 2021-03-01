@@ -11,7 +11,8 @@ part 'counter_state.dart';
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
   CounterBloc() : super(CounterInitial());
   int count = 0;
-  final List<Color> colors = <Color>[Colors.black, Colors.red, Colors.blue, Colors.green];
+  List<Color> colors = <Color>[Colors.grey[300], Colors.black, Colors.red, Colors.blue, Colors.green];
+  int i = 0;
 
   @override
   Stream<CounterState> mapEventToState(
@@ -19,18 +20,22 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   ) async* {
     if(event is CountEvent){
       count++;
-      yield CounterChangeState(contador: count);
+      yield CounterChangeState(contador: count, color: colors[i]);
     }else if(event is ResetEvent){
-      count=0;
-      yield CounterChangeState(contador: count);
+      count = 0;
+      yield CounterChangeState(contador: count, color: colors[i]);
     }else if(event is ColorBlackEvent){
-      //yield CounterChangeState(contador: count, color: colors[0]);
+      i = 1;
+      yield CounterChangeState(contador: count, color: colors[i]);
     }else if (event is ColorRedEvent) {
-      //yield CounterChangeState(contador: count, color: colors[1]);
+      i = 2;
+      yield CounterChangeState(contador: count, color: colors[i]);
     }else if (event is ColorBlueEvent) {
-      //yield CounterChangeState(contador: count, color: colors[2]);
+      i = 3;
+      yield CounterChangeState(contador: count, color: colors[i]);
     }else if (event is ColorGreenEvent) {
-      //yield CounterChangeState(contador: count, color: colors[3]);
+      i = 4;
+      yield CounterChangeState(contador: count, color: colors[i]);
     }
   }
 }
